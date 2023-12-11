@@ -1,0 +1,4 @@
+#!/bin/sh
+cd `dirname $0`
+../src/selective_protocol_simulation -n .:../src $*
+# for shared lib, use: opp_run -l ../src/selective_protocol_simulation -n .:../src $*

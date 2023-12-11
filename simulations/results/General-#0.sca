@@ -1,0 +1,46 @@
+version 3
+run General-0-20231211-22:00:14-6972
+attr configname General
+attr datetime 20231211-22:00:14
+attr datetimef 20231211-220014
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network selective_protocol_simulation.Network
+attr processid 6972
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config network selective_protocol_simulation.Network
+config **.WS 4
+config **.WR 4
+config **.PT 0.5
+config **.TO 10.0
+config **.TD 1.0
+config **.ED 4.0
+config **.DD 0.1
+
+par Network.Node0 typename "\"selective_protocol_simulation.Node\""
+par Network.Node0 WS 4
+par Network.Node0 WR 4
+par Network.Node0 PT 0.5
+par Network.Node0 TO 10
+par Network.Node0 TD 1
+par Network.Node0 ED 4
+par Network.Node0 DD 0.1
+par Network.Node1 typename "\"selective_protocol_simulation.Node\""
+par Network.Node1 WS 4
+par Network.Node1 WR 4
+par Network.Node1 PT 0.5
+par Network.Node1 TO 10
+par Network.Node1 TD 1
+par Network.Node1 ED 4
+par Network.Node1 DD 0.1
+par Network.coordinator typename "\"selective_protocol_simulation.Coordinator\""
+par Network typename "\"selective_protocol_simulation.Network\""
+

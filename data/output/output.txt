@@ -1,0 +1,342 @@
+At time 0, Node1, Introducing channel error with code=1000
+At time 0.5, Node1 sent frame with seq_num=0 and payload=#In the tapestry of the universg, stars are born and die,# and trailer=11011101, Modified=241, Lost=No, Duplicate=0, Delay=0
+At time 0.5, Node1, Introducing channel error with code=0100
+At time 1, Node1 sent frame with seq_num=1 and payload=#galaxies spin in the silent waltz of space,# and trailer=00100010, Modified=-1, Lost=Yes, Duplicate=0, Delay=0
+At time 1, Node1, Introducing channel error with code=0010
+At time 1.5, Node1 sent frame with seq_num=2 and payload=#while black holes weave the fabric of spacetime.# and trailer=01011111, Modified=-1, Lost=No, Duplicate=1, Delay=0
+At time 1.5, Node1 sent frame with seq_num=2 and payload=#while black holes weave the fabric of spacetime.# and trailer=01011111, Modified=-1, Lost=No, Duplicate=2, Delay=0
+At time 2, Node0 Sending NACK with number 0, loss No
+At time 2, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 1.5, Node1, Introducing channel error with code=1100
+At time 2, Node1 sent frame with seq_num=3 and payload=#On Earth, the ebb anD flow of oceans# and trailer=10010011, Modified=165, Lost=Yes, Duplicate=0, Delay=0
+At time 3, Node0 Sending ACK with number 3, loss No
+At time 3, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 3.5, Node1 sent frame with seq_num=0 and payload=#In the tapestry of the universe, stars are born and die,# and trailer=11011101, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 5, Node0 Sending ACK with number 1, loss No
+At time 5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 6, Node1, Introducing channel error with code=1010
+At time 6.5, Node1 sent frame with seq_num=4 and payload=#echo the rhythm of luncr cycles.# and trailer=00110000, Modified=177, Lost=No, Duplicate=1, Delay=0
+At time 6.5, Node1 sent frame with seq_num=4 and payload=#echo the rhythm of luncr cycles.# and trailer=00110000, Modified=177, Lost=No, Duplicate=2, Delay=0
+At time 8, Node0 Sending NACK with number 4, loss No
+At time 8, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 8.1, Node0 Sending NACK with number 4, loss No
+At time 8.1, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 9.5, Node1 sent frame with seq_num=4 and payload=#echo the rhythm of lunar cycles.# and trailer=00110000, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 9.6, Node1 sent frame with seq_num=4 and payload=#echo the rhythm of lunar cycles.# and trailer=00110000, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 10.5, at Node1 for frame with seq_num=1
+At time 11, Node1 sent frame with seq_num=1 and payload=#galaxies spin in the silent waltz of space,# and trailer=00100010, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 11, Node0 Sending ACK with number 5, loss No
+At time 11, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 11.5, at Node1 for frame with seq_num=3
+At time 12, Node1 sent frame with seq_num=3 and payload=#On Earth, the ebb and flow of oceans# and trailer=10010011, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 12.5, Node0 Sending ACK with number 2, loss No
+At time 12.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 13.5, Node0 Sending ACK with number 4, loss No
+At time 13.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 13.5, Node1, Introducing channel error with code=0110
+At time 14, Node1 sent frame with seq_num=5 and payload=#Forests grow, inhaling carbon, exhaling life,# and trailer=01110111, Modified=-1, Lost=Yes, Duplicate=1, Delay=0
+At time 14, Node1 sent frame with seq_num=5 and payload=#Forests grow, inhaling carbon, exhaling life,# and trailer=01110111, Modified=-1, Lost=Yes, Duplicate=2, Delay=0
+At time 14, Node1, Introducing channel error with code=0001
+At time 14.5, Node1 sent frame with seq_num=6 and payload=#nurturing biodiversity in their leafy realms.# and trailer=10001101, Modified=-1, Lost=No, Duplicate=0, Delay=4.000000
+At time 14.5, Node1, Introducing channel error with code=1001
+At time 15, Node1 sent frame with seq_num=7 and payload=#Cities pulse with the beat of human eldeavor,# and trailer=01111110, Modified=297, Lost=No, Duplicate=0, Delay=4.000000
+At time 15, Node1, Introducing channel error with code=0101
+At time 15.5, Node1 sent frame with seq_num=0 and payload=#innovation blossoms from necessity and imagination.# and trailer=00011001, Modified=-1, Lost=Yes, Duplicate=0, Delay=4.000000
+At time 20, Node0 Sending ACK with number 7, loss No
+At time 20, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 20.5, Node0 Sending NACK with number 7, loss No
+At time 20.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 22, Node1 sent frame with seq_num=7 and payload=#Cities pulse with the beat of human endeavor,# and trailer=01111110, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 23.5, Node0 Sending ACK with number 0, loss No
+At time 23.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 23.5, at Node1 for frame with seq_num=5
+At time 24, Node1 sent frame with seq_num=5 and payload=#Forests grow, inhaling carbon, exhaling life,# and trailer=01110111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 25, at Node1 for frame with seq_num=0
+At time 25.5, Node1 sent frame with seq_num=0 and payload=#innovation blossoms from necessity and imagination.# and trailer=00011001, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 25.5, Node0 Sending ACK with number 6, loss No
+At time 25.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 27, Node0 Sending ACK with number 1, loss No
+At time 27, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 26.5, Node1, Introducing channel error with code=0011
+At time 27, Node1 sent frame with seq_num=1 and payload=#Art and culture reflect the diversity of human experience,# and trailer=01000001, Modified=-1, Lost=No, Duplicate=1, Delay=4.000000
+At time 27, Node1 sent frame with seq_num=1 and payload=#Art and culture reflect the diversity of human experience,# and trailer=01000001, Modified=-1, Lost=No, Duplicate=2, Delay=4.000000
+At time 27, Node1, Introducing channel error with code=1110
+At time 27.5, Node1 sent frame with seq_num=2 and payload=#telling stories that resOnate across ages.# and trailer=11101100, Modified=197, Lost=Yes, Duplicate=1, Delay=0
+At time 27.5, Node1 sent frame with seq_num=2 and payload=#telling stories that resOnate across ages.# and trailer=11101100, Modified=197, Lost=Yes, Duplicate=2, Delay=0
+At time 27.5, Node1, Introducing channel error with code=1011
+At time 28, Node1 sent frame with seq_num=3 and payload=#Mathematics underpins the chaos with!order,# and trailer=10110100, Modified=288, Lost=No, Duplicate=1, Delay=4.000000
+At time 28, Node1 sent frame with seq_num=3 and payload=#Mathematics underpins the chaos with!order,# and trailer=10110100, Modified=288, Lost=No, Duplicate=2, Delay=4.000000
+At time 28, Node1, Introducing channel error with code=0111
+At time 28.5, Node1 sent frame with seq_num=4 and payload=#its equations the language of the cosmos.# and trailer=10101010, Modified=-1, Lost=Yes, Duplicate=1, Delay=4.000000
+At time 28.5, Node1 sent frame with seq_num=4 and payload=#its equations the language of the cosmos.# and trailer=10101010, Modified=-1, Lost=Yes, Duplicate=2, Delay=4.000000
+At time 32.5, Node0 Sending ACK with number 2, loss No
+At time 32.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 33.5, Node0 Sending NACK with number 3, loss No
+At time 33.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 33.6, Node0 Sending NACK with number 3, loss No
+At time 33.6, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 33.5, Node1, Introducing channel error with code=0000
+At time 34, Node1 sent frame with seq_num=5 and payload=#The digital realm expands, a new dimension of existence,# and trailer=10000010, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 35, Node1 sent frame with seq_num=3 and payload=#Mathematics underpins the chaos with order,# and trailer=10110100, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 35.1, Node1 sent frame with seq_num=3 and payload=#Mathematics underpins the chaos with order,# and trailer=10110100, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 35.5, Node0 Sending ACK with number 6, loss No
+At time 35.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 36.5, Node0 Sending ACK with number 4, loss No
+At time 36.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 37, at Node1 for frame with seq_num=2
+At time 37.5, Node1 sent frame with seq_num=2 and payload=#telling stories that resonate across ages.# and trailer=11101100, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 38, at Node1 for frame with seq_num=4
+At time 38.5, Node1 sent frame with seq_num=4 and payload=#its equations the language of the cosmos.# and trailer=10101010, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 39, Node0 Sending ACK with number 3, loss No
+At time 39, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 40, Node0 Sending ACK with number 5, loss No
+At time 40, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 40, Node1, Introducing channel error with code=1101
+At time 40.5, Node1 sent frame with seq_num=6 and payload=#where virtual and physmcal realities blur.# and trailer=11111000, Modified=178, Lost=Yes, Duplicate=0, Delay=4.000000
+At time 40.5, Node1, Introducing channel error with code=1001
+At time 41, Node1 sent frame with seq_num=7 and payload=#Medicine advances, pushing back the boundarie3 of life,# and trailer=11011111, Modified=366, Lost=No, Duplicate=0, Delay=4.000000
+At time 41, Node1, Introducing channel error with code=0101
+At time 41.5, Node1 sent frame with seq_num=0 and payload=#decoding the mysteries of the human body.# and trailer=11000010, Modified=-1, Lost=Yes, Duplicate=0, Delay=4.000000
+At time 41.5, Node1, Introducing channel error with code=0010
+At time 42, Node1 sent frame with seq_num=1 and payload=#Education evolves, knowledge freed from physical confines,# and trailer=00000110, Modified=-1, Lost=No, Duplicate=1, Delay=0
+At time 42, Node1 sent frame with seq_num=1 and payload=#Education evolves, knowledge freed from physical confines,# and trailer=00000110, Modified=-1, Lost=No, Duplicate=2, Delay=0
+At time 43.5, Node0 Sending ACK with number 2, loss No
+At time 43.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 46.5, Node0 Sending NACK with number 7, loss No
+At time 46.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 48, Node1 sent frame with seq_num=7 and payload=#Medicine advances, pushing back the boundaries of life,# and trailer=11011111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 49.5, Node0 Sending ACK with number 0, loss No
+At time 49.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 50, at Node1 for frame with seq_num=6
+At time 50.5, Node1 sent frame with seq_num=6 and payload=#where virtual and physical realities blur.# and trailer=11111000, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 51, at Node1 for frame with seq_num=0
+At time 51.5, Node1 sent frame with seq_num=0 and payload=#decoding the mysteries of the human body.# and trailer=11000010, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 52, Node0 Sending ACK with number 7, loss No
+At time 52, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 53, Node0 Sending ACK with number 1, loss No
+At time 53, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 53, Node1, Introducing channel error with code=1111
+At time 53.5, Node1 sent frame with seq_num=2 and payload=#a world of inforíation just a click away.# and trailer=00000000, Modified=135, Lost=Yes, Duplicate=1, Delay=4.000000
+At time 53.5, Node1 sent frame with seq_num=2 and payload=#a world of inforíation just a click away.# and trailer=00000000, Modified=135, Lost=Yes, Duplicate=2, Delay=4.000000
+At time 53.5, Node1, Introducing channel error with code=1010
+At time 54, Node1 sent frame with seq_num=3 and payload=#Sustainability becomes the m`ntra of progress,# and trailer=01100001, Modified=224, Lost=No, Duplicate=1, Delay=0
+At time 54, Node1 sent frame with seq_num=3 and payload=#Sustainability becomes the m`ntra of progress,# and trailer=01100001, Modified=224, Lost=No, Duplicate=2, Delay=0
+At time 54, Node1, Introducing channel error with code=0110
+At time 54.5, Node1 sent frame with seq_num=4 and payload=#as we seek harmony with the planet that sustains us.# and trailer=10110100, Modified=-1, Lost=Yes, Duplicate=1, Delay=0
+At time 54.5, Node1 sent frame with seq_num=4 and payload=#as we seek harmony with the planet that sustains us.# and trailer=10110100, Modified=-1, Lost=Yes, Duplicate=2, Delay=0
+At time 54.5, Node1, Introducing channel error with code=1100
+At time 55, Node1 sent frame with seq_num=5 and payload=#Energy solutions emerge, harnessing0wind, sun, and atom,# and trailer=01101110, Modified=284, Lost=Yes, Duplicate=0, Delay=0
+At time 55.5, Node0 Sending NACK with number 3, loss No
+At time 55.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 55.6, Node0 Sending NACK with number 3, loss No
+At time 55.6, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 57, Node1 sent frame with seq_num=3 and payload=#Sustainability becomes the mantra of progress,# and trailer=01100001, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 57.1, Node1 sent frame with seq_num=3 and payload=#Sustainability becomes the mantra of progress,# and trailer=01100001, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 58.5, Node0 Sending ACK with number 4, loss No
+At time 58.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 63, at Node1 for frame with seq_num=2
+At time 63.5, Node1 sent frame with seq_num=2 and payload=#a world of information just a click away.# and trailer=00000000, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 64, at Node1 for frame with seq_num=4
+At time 64.5, Node1 sent frame with seq_num=4 and payload=#as we seek harmony with the planet that sustains us.# and trailer=10110100, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 64.5, at Node1 for frame with seq_num=5
+At time 65, Node1 sent frame with seq_num=5 and payload=#Energy solutions emerge, harnessing wind, sun, and atom,# and trailer=01101110, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 65, Node0 Sending ACK with number 3, loss No
+At time 65, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 66, Node0 Sending ACK with number 5, loss No
+At time 66, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 66.5, Node0 Sending ACK with number 6, loss No
+At time 66.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 66, Node1, Introducing channel error with code=1010
+At time 66.5, Node1 sent frame with seq_num=6 and payload=#reducing our footpzint, lighting our way forward.# and trailer=01010101, Modified=147, Lost=No, Duplicate=1, Delay=0
+At time 66.5, Node1 sent frame with seq_num=6 and payload=#reducing our footpzint, lighting our way forward.# and trailer=01010101, Modified=147, Lost=No, Duplicate=2, Delay=0
+At time 66.5, Node1, Introducing channel error with code=0111
+At time 67, Node1 sent frame with seq_num=7 and payload=#Technology races, yet wisdom lags,# and trailer=01100101, Modified=-1, Lost=Yes, Duplicate=1, Delay=4.000000
+At time 67, Node1 sent frame with seq_num=7 and payload=#Technology races, yet wisdom lags,# and trailer=01100101, Modified=-1, Lost=Yes, Duplicate=2, Delay=4.000000
+At time 67, Node1, Introducing channel error with code=0001
+At time 67.5, Node1 sent frame with seq_num=0 and payload=#cautionary tales of Icarus remind us.# and trailer=00101001, Modified=-1, Lost=No, Duplicate=0, Delay=4.000000
+At time 68, Node0 Sending NACK with number 6, loss No
+At time 68, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 67.5, Node1, Introducing channel error with code=1000
+At time 68, Node1 sent frame with seq_num=1 and payload=#The pursuit of knowleäge, endless as the night sky,# and trailer=01001111, Modified=175, Lost=No, Duplicate=0, Delay=0
+At time 68.1, Node0 Sending NACK with number 6, loss No
+At time 68.1, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 69.5, Node1 sent frame with seq_num=6 and payload=#reducing our footprint, lighting our way forward.# and trailer=01010101, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 69.5, Node0 Sending NACK with number 1, loss No
+At time 69.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 69.6, Node1 sent frame with seq_num=6 and payload=#reducing our footprint, lighting our way forward.# and trailer=01010101, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 71, Node0 Sending ACK with number 7, loss No
+At time 71, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 71, Node1 sent frame with seq_num=1 and payload=#The pursuit of knowledge, endless as the night sky,# and trailer=01001111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 72.5, Node0 Sending ACK with number 2, loss No
+At time 72.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 72, Node1, Introducing channel error with code=0100
+At time 72.5, Node1 sent frame with seq_num=2 and payload=#inspires youth to dream, elders to teach.# and trailer=11011101, Modified=-1, Lost=Yes, Duplicate=0, Delay=0
+At time 73, Node0 Sending ACK with number 1, loss No
+At time 73, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 76.5, at Node1 for frame with seq_num=7
+At time 77, Node1 sent frame with seq_num=7 and payload=#Technology races, yet wisdom lags,# and trailer=01100101, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 78.5, Node0 Sending ACK with number 0, loss No
+At time 78.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 79.5, Node1, Introducing channel error with code=0011
+At time 80, Node1 sent frame with seq_num=3 and payload=#Democracyâ€™s challenge, keeping pace with change,# and trailer=10101110, Modified=-1, Lost=No, Duplicate=1, Delay=4.000000
+At time 80, Node1 sent frame with seq_num=3 and payload=#Democracyâ€™s challenge, keeping pace with change,# and trailer=10101110, Modified=-1, Lost=No, Duplicate=2, Delay=4.000000
+At time 80, Node1, Introducing channel error with code=1110
+At time 80.5, Node1 sent frame with seq_num=4 and payload=#ensuring powez serves the people, not the few.# and trailer=11101010, Modified=107, Lost=Yes, Duplicate=1, Delay=0
+At time 80.5, Node1 sent frame with seq_num=4 and payload=#ensuring powez serves the people, not the few.# and trailer=11101010, Modified=107, Lost=Yes, Duplicate=2, Delay=0
+At time 80.5, Node1, Introducing channel error with code=1011
+At time 81, Node1 sent frame with seq_num=5 and payload=#Economies grow, yet so must compaósion,# and trailer=01011111, Modified=271, Lost=No, Duplicate=1, Delay=4.000000
+At time 81, Node1 sent frame with seq_num=5 and payload=#Economies grow, yet so must compaósion,# and trailer=01011111, Modified=271, Lost=No, Duplicate=2, Delay=4.000000
+Time out event at time 82, at Node1 for frame with seq_num=2
+At time 82.5, Node1 sent frame with seq_num=2 and payload=#inspires youth to dream, elders to teach.# and trailer=11011101, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 84, Node0 Sending ACK with number 3, loss No
+At time 84, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 85.5, Node0 Sending ACK with number 4, loss No
+At time 85.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 85, Node1, Introducing channel error with code=0110
+At time 85.5, Node1 sent frame with seq_num=6 and payload=#wealth measured not just in coins, but in well-being.# and trailer=10100101, Modified=-1, Lost=Yes, Duplicate=1, Delay=0
+At time 85.5, Node1 sent frame with seq_num=6 and payload=#wealth measured not just in coins, but in well-being.# and trailer=10100101, Modified=-1, Lost=Yes, Duplicate=2, Delay=0
+At time 86.5, Node0 Sending NACK with number 5, loss No
+At time 86.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 86.6, Node0 Sending NACK with number 5, loss No
+At time 86.6, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 86.5, Node1, Introducing channel error with code=0000
+At time 87, Node1 sent frame with seq_num=7 and payload=#Social media connects, but also divides,# and trailer=01011111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 88, Node1 sent frame with seq_num=5 and payload=#Economies grow, yet so must compassion,# and trailer=01011111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 88.1, Node1 sent frame with seq_num=5 and payload=#Economies grow, yet so must compassion,# and trailer=01011111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 88.5, Node0 Sending ACK with number 0, loss No
+At time 88.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 89.5, Node0 Sending ACK with number 6, loss No
+At time 89.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 90, at Node1 for frame with seq_num=4
+At time 90.5, Node1 sent frame with seq_num=4 and payload=#ensuring power serves the people, not the few.# and trailer=11101010, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 92, Node0 Sending ACK with number 5, loss No
+At time 92, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 93, Node1, Introducing channel error with code=1101
+At time 93.5, Node1 sent frame with seq_num=0 and payload=#thE double-edged sword of instant communication.# and trailer=11000010, Modified=21, Lost=Yes, Duplicate=0, Delay=4.000000
+At time 93.5, Node1, Introducing channel error with code=1000
+At time 94, Node1 sent frame with seq_num=1 and payload=#Quantum leaps in computing pow%r,# and trailer=01101101, Modified=246, Lost=No, Duplicate=0, Delay=0
+Time out event at time 95, at Node1 for frame with seq_num=6
+At time 95.5, Node1 sent frame with seq_num=6 and payload=#wealth measured not just in coins, but in well-being.# and trailer=10100101, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 95.5, Node0 Sending NACK with number 1, loss No
+At time 95.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 97, Node0 Sending ACK with number 7, loss No
+At time 97, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 97, Node1 sent frame with seq_num=1 and payload=#Quantum leaps in computing power,# and trailer=01101101, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 98.5, Node0 Sending ACK with number 2, loss No
+At time 98.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 98, Node1, Introducing channel error with code=0100
+At time 98.5, Node1 sent frame with seq_num=2 and payload=#hinting at solutions for the unsolvable.# and trailer=10101001, Modified=-1, Lost=Yes, Duplicate=0, Delay=0
+At time 98.5, Node1, Introducing channel error with code=0011
+At time 99, Node1 sent frame with seq_num=3 and payload=#Climate change, the specter of our age,# and trailer=00100110, Modified=-1, Lost=No, Duplicate=1, Delay=4.000000
+At time 99, Node1 sent frame with seq_num=3 and payload=#Climate change, the specter of our age,# and trailer=00100110, Modified=-1, Lost=No, Duplicate=2, Delay=4.000000
+Time out event at time 103, at Node1 for frame with seq_num=0
+At time 103.5, Node1 sent frame with seq_num=0 and payload=#the double-edged sword of instant communication.# and trailer=11000010, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 104.5, Node0 Sending ACK with number 4, loss No
+At time 104.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 105, Node0 Sending ACK with number 1, loss No
+At time 105, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 106, Node1, Introducing channel error with code=1110
+At time 106.5, Node1 sent frame with seq_num=4 and payload=#calls for acdion, not words, from every nation.# and trailer=11001100, Modified=100, Lost=Yes, Duplicate=1, Delay=0
+At time 106.5, Node1 sent frame with seq_num=4 and payload=#calls for acdion, not words, from every nation.# and trailer=11001100, Modified=100, Lost=Yes, Duplicate=2, Delay=0
+At time 106.5, Node1, Introducing channel error with code=1011
+At time 107, Node1 sent frame with seq_num=5 and payload=#Space beckons wIth infinite possibilities,# and trailer=11011101, Modified=125, Lost=No, Duplicate=1, Delay=4.000000
+At time 107, Node1 sent frame with seq_num=5 and payload=#Space beckons wIth infinite possibilities,# and trailer=11011101, Modified=125, Lost=No, Duplicate=2, Delay=4.000000
+Time out event at time 108, at Node1 for frame with seq_num=2
+At time 108.5, Node1 sent frame with seq_num=2 and payload=#hinting at solutions for the unsolvable.# and trailer=10101001, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 110, Node0 Sending ACK with number 3, loss No
+At time 110, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 111, Node1, Introducing channel error with code=0110
+At time 111.5, Node1 sent frame with seq_num=6 and payload=#our celestial neighbors within reach.# and trailer=11100000, Modified=-1, Lost=Yes, Duplicate=1, Delay=0
+At time 111.5, Node1 sent frame with seq_num=6 and payload=#our celestial neighbors within reach.# and trailer=11100000, Modified=-1, Lost=Yes, Duplicate=2, Delay=0
+At time 111.5, Node1, Introducing channel error with code=0001
+At time 112, Node1 sent frame with seq_num=7 and payload=#Poetry of the cosmos, written in starlight,# and trailer=11110100, Modified=-1, Lost=No, Duplicate=0, Delay=4.000000
+At time 112.5, Node0 Sending NACK with number 5, loss No
+At time 112.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 112.6, Node0 Sending NACK with number 5, loss No
+At time 112.6, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 114, Node1 sent frame with seq_num=5 and payload=#Space beckons with infinite possibilities,# and trailer=11011101, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 114.1, Node1 sent frame with seq_num=5 and payload=#Space beckons with infinite possibilities,# and trailer=11011101, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 115.5, Node0 Sending ACK with number 6, loss No
+At time 115.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 116, at Node1 for frame with seq_num=4
+At time 116.5, Node1 sent frame with seq_num=4 and payload=#calls for action, not words, from every nation.# and trailer=11001100, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 117.5, Node0 Sending ACK with number 0, loss No
+At time 117.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 118, Node0 Sending ACK with number 5, loss No
+At time 118, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 119, Node1, Introducing channel error with code=1001
+At time 119.5, Node1 sent frame with seq_num=0 and payload=#invites us to reaD its ancient verses.# and trailer=11010000, Modified=141, Lost=No, Duplicate=0, Delay=4.000000
+At time 119.5, Node1, Introducing channel error with code=0101
+At time 120, Node1 sent frame with seq_num=1 and payload=#While the microcosm, in its complexity,# and trailer=01111110, Modified=-1, Lost=Yes, Duplicate=0, Delay=4.000000
+Time out event at time 121, at Node1 for frame with seq_num=6
+At time 121.5, Node1 sent frame with seq_num=6 and payload=#our celestial neighbors within reach.# and trailer=11100000, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 123, Node0 Sending ACK with number 7, loss No
+At time 123, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 124, Node1, Introducing channel error with code=0011
+At time 124.5, Node1 sent frame with seq_num=2 and payload=#mirrors the majesty of the macrocosm.# and trailer=11111101, Modified=-1, Lost=No, Duplicate=1, Delay=4.000000
+At time 124.5, Node1 sent frame with seq_num=2 and payload=#mirrors the majesty of the macrocosm.# and trailer=11111101, Modified=-1, Lost=No, Duplicate=2, Delay=4.000000
+At time 125, Node0 Sending NACK with number 0, loss No
+At time 125, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 124.5, Node1, Introducing channel error with code=1110
+At time 125, Node1 sent frame with seq_num=3 and payload=#Our planet spins, a blue jewel in thm vastness,# and trailer=00000001, Modified=291, Lost=Yes, Duplicate=1, Delay=0
+At time 125, Node1 sent frame with seq_num=3 and payload=#Our planet spins, a blue jewel in thm vastness,# and trailer=00000001, Modified=291, Lost=Yes, Duplicate=2, Delay=0
+At time 126.5, Node1 sent frame with seq_num=0 and payload=#invites us to read its ancient verses.# and trailer=11010000, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 128, Node0 Sending ACK with number 1, loss No
+At time 128, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 129, Node1, Introducing channel error with code=1010
+At time 129.5, Node1 sent frame with seq_num=4 and payload=#an oasis of life, precious and`fragile.# and trailer=11111101, Modified=246, Lost=No, Duplicate=1, Delay=0
+At time 129.5, Node1 sent frame with seq_num=4 and payload=#an oasis of life, precious and`fragile.# and trailer=11111101, Modified=246, Lost=No, Duplicate=2, Delay=0
+Time out event at time 129.5, at Node1 for frame with seq_num=1
+At time 130, Node1 sent frame with seq_num=1 and payload=#While the microcosm, in its complexity,# and trailer=01111110, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 130, Node0 Sending ACK with number 3, loss No
+At time 130, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 131, Node0 Sending NACK with number 4, loss No
+At time 131, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 131.1, Node0 Sending NACK with number 4, loss No
+At time 131.1, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 131.5, Node0 Sending ACK with number 2, loss No
+At time 131.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 132.5, Node1 sent frame with seq_num=4 and payload=#an oasis of life, precious and fragile.# and trailer=11111101, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 132.6, Node1 sent frame with seq_num=4 and payload=#an oasis of life, precious and fragile.# and trailer=11111101, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 132.5, Node1, Introducing channel error with code=0111
+At time 133, Node1 sent frame with seq_num=5 and payload=#Through the lens of history, we see our place,# and trailer=01101000, Modified=-1, Lost=Yes, Duplicate=1, Delay=4.000000
+At time 133, Node1 sent frame with seq_num=5 and payload=#Through the lens of history, we see our place,# and trailer=01101000, Modified=-1, Lost=Yes, Duplicate=2, Delay=4.000000
+At time 133, Node1, Introducing channel error with code=0001
+At time 133.5, Node1 sent frame with seq_num=6 and payload=#transient yet capable of leaving lasting legacies.# and trailer=00100011, Modified=-1, Lost=No, Duplicate=0, Delay=4.000000
+At time 134, Node0 Sending ACK with number 5, loss No
+At time 134, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 134.5, at Node1 for frame with seq_num=3
+At time 135, Node1 sent frame with seq_num=3 and payload=#Our planet spins, a blue jewel in the vastness,# and trailer=00000001, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 136.5, Node0 Sending ACK with number 4, loss No
+At time 136.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 137.5, Node1, Introducing channel error with code=1001
+At time 138, Node1 sent frame with seq_num=7 and payload=#As we stand lookinw up at the stars,# and trailer=00100010, Modified=148, Lost=No, Duplicate=0, Delay=4.000000
+At time 138, Node1, Introducing channel error with code=0101
+At time 138.5, Node1 sent frame with seq_num=0 and payload=#we understand that this moment is but a brief chapter.# and trailer=00011010, Modified=-1, Lost=Yes, Duplicate=0, Delay=4.000000
+At time 139, Node0 Sending ACK with number 7, loss No
+At time 139, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 142.5, at Node1 for frame with seq_num=5
+At time 143, Node1 sent frame with seq_num=5 and payload=#Through the lens of history, we see our place,# and trailer=01101000, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 143.5, Node0 Sending NACK with number 7, loss No
+At time 143.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 144.5, Node0 Sending ACK with number 6, loss No
+At time 144.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 145, Node1 sent frame with seq_num=7 and payload=#As we stand looking up at the stars,# and trailer=00100010, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 145.5, Node1, Introducing channel error with code=0010
+At time 146, Node1 sent frame with seq_num=1 and payload=#In the grand story of the universe,# and trailer=00111011, Modified=-1, Lost=No, Duplicate=1, Delay=0
+At time 146, Node1 sent frame with seq_num=1 and payload=#In the grand story of the universe,# and trailer=00111011, Modified=-1, Lost=No, Duplicate=2, Delay=0
+At time 146.5, Node0 Sending ACK with number 0, loss No
+At time 146.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 146, Node1, Introducing channel error with code=1111
+At time 146.5, Node1 sent frame with seq_num=2 and payload=#we are both the autjors and the audience.# and trailer=00101001, Modified=153, Lost=Yes, Duplicate=1, Delay=4.000000
+At time 146.5, Node1 sent frame with seq_num=2 and payload=#we are both the autjors and the audience.# and trailer=00101001, Modified=153, Lost=Yes, Duplicate=2, Delay=4.000000
+At time 147.5, Node0 Sending ACK with number 2, loss No
+At time 147.5, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 148, at Node1 for frame with seq_num=0
+At time 148.5, Node1 sent frame with seq_num=0 and payload=#we understand that this moment is but a brief chapter.# and trailer=00011010, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 150, Node0 Sending ACK with number 1, loss No
+At time 150, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0
+Time out event at time 156, at Node1 for frame with seq_num=2
+At time 156.5, Node1 sent frame with seq_num=2 and payload=#we are both the authors and the audience.# and trailer=00101001, Modified=-1, Lost=No, Duplicate=0, Delay=0
+At time 158, Node0 Sending ACK with number 3, loss No
+At time 158, Node0 sent frame with seq_num=0 and payload=## and trailer=11111111, Modified=-1, Lost=No, Duplicate=0, Delay=0

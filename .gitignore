@@ -31,5 +31,5 @@
 *.out
 *.app
 
-simulations/
-data/output/
+simulations\
+data\output\

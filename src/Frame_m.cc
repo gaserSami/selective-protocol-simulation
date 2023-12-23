@@ -57,9 +57,9 @@ Register_Class(Frame)
 // check checksum
 bool Frame::checkCheckSum()
 {
-    removeFraming();                          // Remove byte stuffing
-    byte checkSum(trailer);                   // Convert trailer to byte
-    std::string payloadStr = payload.c_str(); // Convert payload to a standard C++ string to make it easier to manipulate
+    Frame* frame = removeFraming(this);                    // Remove byte stuffing
+    byte checkSum(frame->getTrailer());                   // Convert trailer to byte
+    std::string payloadStr = std::string(frame->getPayload()).c_str();
     for (int i = 0; i < payloadStr.size(); i++)
     {
         byte character = byte(payloadStr[i]);                          // Convert char to binary
@@ -95,6 +95,33 @@ void Frame::applyFraming()
 }
 
 // removes byte stuffing from the payload and sets it in the payload
+Frame* Frame::removeFraming(Frame* frame)
+{
+    std::string unframedPayload;              // Initialize unframed payload
+    std::string payloadStr = std::string(frame->getPayload()).c_str(); // Convert payload to a standard C++ string to make it easier to manipulate
+    bool escape = false;                      // Initialize escape flag
+    for (int i = 1; i < payloadStr.length() - 1; i++)
+    {                           // Ignore first and last characters (FLAGS)
+        char c = payloadStr[i]; // Get character
+        if (escape)
+        {
+            unframedPayload += c; // Add character
+            escape = false;
+        }
+        else if (c == ESC) // If character is escape character, set escape flag
+        {
+            escape = true;
+        }
+        else
+        {
+            unframedPayload += c; // Add character
+        }
+    }
+    Frame* newFrame = frame->dup();
+    newFrame->setPayload(unframedPayload.c_str()); // Set payload
+    return newFrame;
+}
+
 void Frame::removeFraming()
 {
     std::string unframedPayload;              // Initialize unframed payload

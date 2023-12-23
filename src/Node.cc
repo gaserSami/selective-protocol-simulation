@@ -54,17 +54,20 @@ void Node::sendFrame(int dataSeqNr, int type, std::string payload, int ackSeqNr,
     frame->setFrameInfo(dataSeqNr, type, ackSeqNr, payload.c_str(), modficationError, modfiedBit); // set the frame info
 
     // printing the frame info
-    std::string info = "At time " + std::string((simTime() + processingTime).str()) + ", " + std::string(getName()) + " sent frame with seq_num=" + std::to_string(dataSeqNr) + " and payload=" + frame->getPayload() + " and trailer=" + std::string(frame->getTrailer().to_string()) + ", Modified=" + (modficationError ? std::to_string(modfiedBit) : "-1") + ", Lost=" + (lostError ? "Yes" : "No") + ", Duplicate=" + (duplicateError ? "1" : "0") + ", Delay=" + (delayError ? std::to_string(errorDelay) : "0");
-    EV << info << endl;
-    fileHandler->writeInOutput(info);
+     if(type == 0)
+     {
+        std::string info = "At time = [" + std::string((simTime() + processingTime).str()) + "], " + std::string(getName()) + "[sent] frame with seq_num =" + std::to_string(dataSeqNr) + " and payload = [" + frame->getPayload() + "] and trailer = [" + std::string(frame->getTrailer().to_string()) + "], Modified[" + (modficationError ? std::to_string(modfiedBit) : "-1") + "], Lost[" + (lostError ? "Yes" : "No") + "], Duplicate[" + (duplicateError ? "1" : "0") + "], Delay[" + (delayError ? std::to_string(errorDelay) : "0") + "]";
+        EV << info << endl;
+        fileHandler->writeInOutput(info);
+     }
 
     // If the frame is lost, don't send it and schedule a self message to continue sending frames
     if (lostError)
     {
-        if (duplicateError) // if the frame is duplicated, print the info
+        if (duplicateError && type == 0) // if the frame is duplicated, print the info
         {
             // printing the frame info
-            std::string duplicateInfo = "At time " + std::string((simTime() + processingTime).str()) + ", " + std::string(getName()) + " sent frame with seq_num=" + std::to_string(dataSeqNr) + " and payload=" + frame->getPayload() + " and trailer=" + std::string(frame->getTrailer().to_string()) + ", Modified=" + (modficationError ? std::to_string(modfiedBit) : "-1") + ", Lost=" + (lostError ? "Yes" : "No") + ", Duplicate=" + ("2") + ", Delay=" + (delayError ? std::to_string(errorDelay) : "0");
+            std::string duplicateInfo = "At time = [" + std::string((simTime() + processingTime).str()) + "], " + std::string(getName()) + "[sent] frame with seq_num =" + std::to_string(dataSeqNr) + " and payload = [" + frame->getPayload() + "] and trailer = [" + std::string(frame->getTrailer().to_string()) + "], Modified[" + (modficationError ? std::to_string(modfiedBit) : "-1") + "], Lost[" + (lostError ? "Yes" : "No") + "], Duplicate[" + "2" + "], Delay[" + (delayError ? std::to_string(errorDelay) : "0") + "]";
             EV << duplicateInfo << endl;
             fileHandler->writeInOutput(duplicateInfo); // write the info in the output file
         }
@@ -81,9 +84,12 @@ void Node::sendFrame(int dataSeqNr, int type, std::string payload, int ackSeqNr,
         Frame *duplicateFrame = frame->dup();                                  // duplicate the frame to send it again
         sendDelayed(duplicateFrame, totalDelay + duplicationDelay, "gout", 0); // send a duplicate frame after totalDelay + DD
         // printing the frame info
-        std::string duplicateInfo = "At time " + std::string((simTime() + processingTime).str()) + ", " + std::string(getName()) + " sent frame with seq_num=" + std::to_string(dataSeqNr) + " and payload=" + frame->getPayload() + " and trailer=" + std::string(frame->getTrailer().to_string()) + ", Modified=" + (modficationError ? std::to_string(modfiedBit) : "-1") + ", Lost=" + (lostError ? "Yes" : "No") + ", Duplicate=" + ("2") + ", Delay=" + (delayError ? std::to_string(errorDelay) : "0");
+        if(type == 0)
+        {
+        std::string duplicateInfo = "At time = [" + std::string((simTime() + processingTime).str()) + "], " + std::string(getName()) + "[sent] frame with seq_num =" + std::to_string(dataSeqNr) + " and payload = [" + frame->getPayload() + "] and trailer = [" + std::string(frame->getTrailer().to_string()) + "], Modified[" + (modficationError ? std::to_string(modfiedBit) : "-1") + "], Lost[" + (lostError ? "Yes" : "No") + "], Duplicate[" + "2" + "], Delay[" + (delayError ? std::to_string(errorDelay) : "0") + "]";
         EV << duplicateInfo << endl;
         fileHandler->writeInOutput(duplicateInfo);
+        }
     }
 }
 
@@ -91,6 +97,12 @@ void Node::sendFrame(int dataSeqNr, int type, std::string payload, int ackSeqNr,
 // handles the acks and slides the window
 void Node::receiveACK(Frame *frame)
 {
+
+    // print the info
+    std::string ACKinfo = "At time " + std::string((simTime()).str()) + ", " + std::string(getName()) + " [recived] " + "[ACK]" + " with number [" + std::to_string((frame->getAckSeqNr()) % (receiverMaxSeq + 1)) + "]";
+    EV << ACKinfo << std::endl;
+    fileHandler->writeInOutput(ACKinfo); // write the info in the output file
+
     // if the ack is not in the window or already arrived
     if (!between(expectedAck, (frame->getAckSeqNr() - 1) % (senderMaxSeq + 1), nextFrameToSend) || arrivedOut[((frame->getAckSeqNr() - 1) % senderWindowSize)])
         return;
@@ -132,8 +144,18 @@ void Node::receiveACK(Frame *frame)
 // handles the nacks and resends the frame
 void Node::receiveNACK(Frame *frame)
 {
+    // print the info
+    std::string NACKinfo = "At time " + std::string((simTime()).str()) + ", " + std::string(getName()) + " [recived] " + "[NACK]" + " with number [" + std::to_string((frame->getAckSeqNr()) % (receiverMaxSeq + 1)) + "]";
+    EV << NACKinfo << std::endl;
+    fileHandler->writeInOutput(NACKinfo); // write the info in the output file
+
     if (!between(expectedAck, (frame->getAckSeqNr()) % (senderMaxSeq + 1), nextFrameToSend) || arrivedOut[((frame->getAckSeqNr()) % senderWindowSize)]) // if the ack is not in the window or already arrived
         return;
+    
+    // retransmit the frame
+    std::string info = "At time [" + std::string(simTime().str()) + "], " + std::string(getName()) + ", Introducing channel error with code =[" + "0000" + "], and msg =" + packetsOut[(frame->getAckSeqNr() % senderWindowSize)] + "";
+    EV << info << std::endl;
+    fileHandler->writeInOutput(info);    
 
     // stop the timer
     stopTimer((frame->getAckSeqNr()));
@@ -147,17 +169,29 @@ void Node::receiveNACK(Frame *frame)
 // handles the data and sends acks or nacks
 void Node::recieveData(Frame *frame)
 {
-    if (!between(expectedFrame, (frame->getDataSeqNr() % (receiverMaxSeq + 1)), recUpperBound) || arrivedIn[((frame->getDataSeqNr()) % receiverWindowSize)]) // if the frame is not in the window
+    bool duplicateError = arrivedIn[((frame->getDataSeqNr()) % receiverWindowSize)]; // is the frame duplicated
+    bool lostError = false;                                                     // is the frame lost
+    bool delayError = false;                                                    // is the frame delayed
+    bool modficationError = !frame->checkCheckSum();                             // is the frame modified
+
+     // print the info
+    std::string info = "At time = [" + std::string((simTime()).str()) + "], " + std::string(getName()) + "[received] frame with seq_num = " + std::to_string(frame->getDataSeqNr()) + " and payload = [" + frame->getPayload() + "] and trailer = [" + std::string(frame->getTrailer().to_string()) + "], Modified[" + (modficationError ? "1" : "-1") + "], Lost[" + (lostError ? "Yes" : "No") + "], Duplicate[" + (duplicateError ? "1" : "0") + "], Delay[" + (delayError ? "1" : "0") + "]";
+    EV << info << std::endl;
+    fileHandler->writeInOutput(info); // write the info in the output file
+
+    if (!between(expectedFrame, (frame->getDataSeqNr() % (receiverMaxSeq + 1)), recUpperBound) || duplicateError) // if the frame is not in the window
         return;
+
     if (frame->checkCheckSum()) // this removes the framing also
     {
         // send postive ack
-        bool lostError = false;        // is the frame lost
         std::bitset<4> prefix("0000"); // no error
-        std::string info = "At time " + std::string((simTime() + processingTime).str()) + ", " + std::string(getName()) + " Sending " + "ACK" + " with number " + std::to_string((frame->getDataSeqNr() + 1) % (receiverMaxSeq + 1)) + ", loss " + (lostError ? "Yes" : "No");
-        EV << info << std::endl;
-        fileHandler->writeInOutput(info); // write the info in the output file
+        std::string ACKinfo = "At time " + std::string((simTime() + processingTime).str()) + ", " + std::string(getName()) + " [Sent] " + "[ACK]" + " with number [" + std::to_string((frame->getDataSeqNr() + 1) % (receiverMaxSeq + 1)) + "]";
+        EV << ACKinfo << std::endl;
+        fileHandler->writeInOutput(ACKinfo); // write the info in the output file
 
+
+        frame->removeFraming();                                                         // remove the framing
         // send the ack
         sendFrame(0, 1, "", (frame->getDataSeqNr() + 1), prefix);                      // send the ack
         packetsIn[(frame->getDataSeqNr() % receiverWindowSize)] = frame->getPayload(); // save the payload
@@ -175,15 +209,15 @@ void Node::recieveData(Frame *frame)
     else // the frame is corrupted
     {
         // send negative ack
-        bool lostError = false;        // is the frame lost
         std::bitset<4> prefix("0000"); // no error
-        std::string info = "At time " + std::string((simTime() + processingTime).str()) + ", " + std::string(getName()) + " Sending " + "NACK" + " with number " + std::to_string(frame->getDataSeqNr()) + ", loss " + (lostError ? "Yes" : "No");
-        EV << info << std::endl;
-        fileHandler->writeInOutput(info);
+        std::string NACKinfo = "At time " + std::string((simTime() + processingTime).str()) + ", " + std::string(getName()) + " [Sent] " + "[NACK]" + " with number [" + std::to_string(frame->getDataSeqNr()) + "]";
+        EV << NACKinfo << std::endl;
+        fileHandler->writeInOutput(NACKinfo);
 
         // send the nack
         sendFrame(0, 2, "", frame->getDataSeqNr(), prefix);
     }
+
 }
 
 // process the next packet
@@ -208,7 +242,7 @@ void Node::processNextPacket()
     std::bitset<4> prefix(packetData.first);
     std::string packet = packetData.second;
     // Add the required information to the string stream
-    std::string info = "At time " + std::string(simTime().str()) + ", " + std::string(getName()) + ", Introducing channel error with code=" + std::string(prefix.to_string());
+    std::string info = "At time [" + std::string(simTime().str()) + "], " + std::string(getName()) + ", Introducing channel error with code =[" + std::string(prefix.to_string()) + "], and msg =" + packet + "";
     EV << info << std::endl;
     fileHandler->writeInOutput(info);
 

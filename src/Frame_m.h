@@ -92,7 +92,7 @@ private:
   // private methods
   void applyRandomError(int modfiedBit); // applies a random error to the frame
   void applyFraming();                   // applies byte stuffing to the payload and sets it in the payload
-  void removeFraming();                  // removes byte stuffing from the payload and sets it in the payload
+  Frame* removeFraming(Frame* frame);       // removes byte stuffing from the payload and sets it in the payload
   void calculateCheckSum();              // calculates the checksum and sets it in the trailer
 
 public:
@@ -112,6 +112,7 @@ public:
   // public methods
   bool checkCheckSum();                                                                                        // returns true if the checksum is correct
   void setFrameInfo(int dataSeqNr, int type, int ackSeqNr, const char *payload, bool errored, int modfiedBit); // sets the frame info
+  void removeFraming();                                                                                        // removes byte stuffing from the payload and sets it in the payload
 };
 
 namespace omnetpp

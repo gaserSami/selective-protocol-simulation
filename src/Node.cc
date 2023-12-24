@@ -104,9 +104,10 @@ void Node::receiveACK(Frame *frame)
     std::cout<< "nextFrameToSend: " << nextFrameToSend << std::endl;
     std::cout << "======================================" << std::endl;
 
-    while (between(expectedAck, (frame->getAckSeqNr() + senderMaxSeq) % (senderMaxSeq + 1), nextFrameToSend)) {
+    while (between(expectedAck, ((frame->getAckSeqNr() + senderMaxSeq) % (senderMaxSeq + 1)), nextFrameToSend)) {
         // stop the timer
-        stopTimer((frame->getAckSeqNr() + senderMaxSeq) % (senderMaxSeq + 1));
+        std::cout << "Stoping timer with number: " << expectedAck << std::endl;
+        stopTimer(expectedAck);
         // remove the frame from the buffer
         nBuffered--;
         // slide the window
@@ -179,8 +180,11 @@ void Node::recieveData(Frame *frame)
     EV << info << std::endl;
     fileHandler->writeInOutput(info); // write the info in the output file
 
-    if (!between(expectedFrame, (frame->getDataSeqNr()), recUpperBound) || duplicateError) // if the frame is not in the window
+    if (!between(expectedFrame, (frame->getDataSeqNr()), recUpperBound) || duplicateError)
+    {
+        std::cout<< "didn't recieve" << std::endl;
         return;
+    } // if the frame is not in the window     
 
     if(!isTheExpectedFrame && !nackSent) // if the frame is not the expected frame send a nack on the expected frame
     {

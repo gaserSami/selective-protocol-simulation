@@ -30,7 +30,9 @@ public:
     void writeInReceiverOutput(std::string content); // appends to receiver file
     void writeInfile(std::string content, std::string filePath);           // appends to file
     std::pair<int, int> readCoordinatorData();       // reads coordinator data
-
+    void resetFile(std::string filePath);            // resets the file
+    void resetOutput();                              // resets the output file
+    void resetReceiverOutput();                      // resets the receiver file
 private:
     std::string filePath; // file name
     int currentLine;      // current line

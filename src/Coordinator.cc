@@ -9,6 +9,9 @@ void Coordinator::initialize()
 {
     // create a new file handler with the coordinator file path
     fileHandler = new FileHandler("../data/input/coordinator.txt");
+    // reset outputs
+    fileHandler->resetOutput();
+    fileHandler->resetReceiverOutput();
     // read the coordinator data from the file
     std::pair<int, int> coordinatorData = fileHandler->readCoordinatorData();
     nodeNumber = coordinatorData.first;    // get the node number

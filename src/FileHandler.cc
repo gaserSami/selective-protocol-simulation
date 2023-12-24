@@ -92,3 +92,23 @@ std::pair<int, int> FileHandler::readCoordinatorData()
 
     return {-1, -1}; // return -1, -1
 }
+
+
+// Reset the file
+void FileHandler::resetFile(std::string filePath) {
+    std::ofstream ofs; // output file stream
+    ofs.open(filePath, std::ofstream::out | std::ofstream::trunc); // open the file
+    ofs.close();
+}
+
+// Reset the output file
+void FileHandler::resetOutput()
+{
+    resetFile("../data/output/output.txt"); // reset the output file
+}
+
+// Reset the receiver file
+void FileHandler::resetReceiverOutput()
+{
+    resetFile("../data/output/receiver.txt"); // reset the receiver file
+}

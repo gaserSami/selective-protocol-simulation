@@ -385,9 +385,15 @@ void Node::handleMessage(cMessage *msg)
         // get the seq number
         int seqNr = std::stoi(msg->getName());
         // print the info
-        std::string info = "Time out event at time " + simTime().str() + ", at " + std::string(getName()) + " for frame with seq_num=" + std::to_string(seqNr);
+        std::string timeOutInfo = "Time out event at time " + simTime().str() + ", at " + std::string(getName()) + " for frame with seq_num=" + std::to_string(seqNr);
+        EV << timeOutInfo << std::endl;
+        fileHandler->writeInOutput(timeOutInfo);
+
+        // retransmit the frame
+        std::string info = "At time [" + std::string(simTime().str()) + "], " + std::string(getName()) + ", Introducing channel error with code =[" + "0000" + "], and msg =" + packetsOut[(seqNr % senderWindowSize)] + "";
         EV << info << std::endl;
-        fileHandler->writeInOutput(info);
+        fileHandler->writeInOutput(info);  
+
         // resend the frame again
         std::bitset<4> prefix("0000");
         startTimer(seqNr);

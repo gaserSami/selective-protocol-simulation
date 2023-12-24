@@ -17,11 +17,6 @@ void Node::printInfo()
     std::cout << "nBuffered: " << nBuffered << std::endl;
     std::cout << "senderMaxSeq: " << senderMaxSeq << std::endl;
     std::cout << "isFull: " << isFull << std::endl;
-    std::cout << "arrivedOut:"
-              << "[" << arrivedOut[0] << "]"
-              << "[" << arrivedOut[1] << "]"
-              << "[" << arrivedOut[2] << "]"
-              << "[" << arrivedOut[3] << "]" << std::endl;
     std::cout << "======================================" << std::endl;
 
     std::cout << "Receiver Debugging Info:" << std::endl;
@@ -99,29 +94,31 @@ void Node::receiveACK(Frame *frame)
 {
 
     // print the info
-    std::string ACKinfo = "At time " + std::string((simTime()).str()) + ", " + std::string(getName()) + " [recived] " + "[ACK]" + " with number [" + std::to_string((frame->getAckSeqNr()) % (receiverMaxSeq + 1)) + "]";
+    std::string ACKinfo = "At time " + std::string((simTime()).str()) + ", " + std::string(getName()) + " [recived] " + "[ACK]" + " with number [" + std::string(std::to_string((frame->getAckSeqNr()) % (receiverMaxSeq + 1))) + "]";
     EV << ACKinfo << std::endl;
     fileHandler->writeInOutput(ACKinfo); // write the info in the output file
 
-    // if the ack is not in the window or already arrived
-    if (!between(expectedAck, (frame->getAckSeqNr() - 1) % (senderMaxSeq + 1), nextFrameToSend) || arrivedOut[((frame->getAckSeqNr() - 1) % senderWindowSize)])
-        return;
+    std::cout << "================Rec ACK= 1=====================" << std::endl;
+    std::cout<< "expectedAck: " << expectedAck << std::endl;
+    std::cout<< "frame->getAckSeqNr(): " << frame->getAckSeqNr() << std::endl;
+    std::cout<< "nextFrameToSend: " << nextFrameToSend << std::endl;
+    std::cout << "======================================" << std::endl;
 
-    // mark the frame as arrivedOut
-    arrivedOut[((frame->getAckSeqNr() - 1) % senderWindowSize)] = true;
-    // stop the timer
-    stopTimer(((frame->getAckSeqNr() - 1)));
-
-    // remove the frame from the buffer
-    // slide the window
-    while (arrivedOut[expectedAck % senderWindowSize])
-    {
+    while (between(expectedAck, (frame->getAckSeqNr() + senderMaxSeq) % (senderMaxSeq + 1), nextFrameToSend)) {
+        // stop the timer
+        stopTimer((frame->getAckSeqNr() + senderMaxSeq) % (senderMaxSeq + 1));
         // remove the frame from the buffer
         nBuffered--;
         // slide the window
-        arrivedOut[expectedAck % senderWindowSize] = false;   // remove the frame from the buffer
         expectedAck = (expectedAck + 1) % (senderMaxSeq + 1); // slide the window
     }
+
+    
+    std::cout << "================Rec ACK= 2=====================" << std::endl;
+    std::cout<< "expectedAck: " << expectedAck << std::endl;
+    std::cout<< "frame->getAckSeqNr(): " << frame->getAckSeqNr() << std::endl;
+    std::cout<< "nextFrameToSend: " << nextFrameToSend << std::endl;
+    std::cout << "======================================" << std::endl;
 
     // if the buffer was full and now there is space so start checking the netwrork for new packets
     if (nBuffered < senderWindowSize && isFull) // was full and now there is space so start checking the netwrork for new packets
@@ -145,11 +142,11 @@ void Node::receiveACK(Frame *frame)
 void Node::receiveNACK(Frame *frame)
 {
     // print the info
-    std::string NACKinfo = "At time " + std::string((simTime()).str()) + ", " + std::string(getName()) + " [recived] " + "[NACK]" + " with number [" + std::to_string((frame->getAckSeqNr()) % (receiverMaxSeq + 1)) + "]";
+    std::string NACKinfo = "At time " + std::string((simTime()).str()) + ", " + std::string(getName()) + " [recived] " + "[NACK]" + " with number [" + std::string(std::to_string((frame->getAckSeqNr()) % (receiverMaxSeq + 1))) + "]";
     EV << NACKinfo << std::endl;
     fileHandler->writeInOutput(NACKinfo); // write the info in the output file
 
-    if (!between(expectedAck, (frame->getAckSeqNr()) % (senderMaxSeq + 1), nextFrameToSend) || arrivedOut[((frame->getAckSeqNr()) % senderWindowSize)]) // if the ack is not in the window or already arrived
+    if (!between(expectedAck, (frame->getAckSeqNr()), nextFrameToSend)) // if the ack is not in the window
         return;
     
     // retransmit the frame
@@ -173,27 +170,39 @@ void Node::recieveData(Frame *frame)
     bool lostError = false;                                                     // is the frame lost
     bool delayError = false;                                                    // is the frame delayed
     bool modficationError = !frame->checkCheckSum();                             // is the frame modified
+    bool isTheExpectedFrame = (frame->getDataSeqNr() == expectedFrame); // is the frame the expected frame
+
+    printInfo();
 
      // print the info
     std::string info = "At time = [" + std::string((simTime()).str()) + "], " + std::string(getName()) + "[received] frame with seq_num = " + std::to_string(frame->getDataSeqNr()) + " and payload = [" + frame->getPayload() + "] and trailer = [" + std::string(frame->getTrailer().to_string()) + "], Modified[" + (modficationError ? "1" : "-1") + "], Lost[" + (lostError ? "Yes" : "No") + "], Duplicate[" + (duplicateError ? "1" : "0") + "], Delay[" + (delayError ? "1" : "0") + "]";
     EV << info << std::endl;
     fileHandler->writeInOutput(info); // write the info in the output file
 
-    if (!between(expectedFrame, (frame->getDataSeqNr() % (receiverMaxSeq + 1)), recUpperBound) || duplicateError) // if the frame is not in the window
+    if (!between(expectedFrame, (frame->getDataSeqNr()), recUpperBound) || duplicateError) // if the frame is not in the window
         return;
+
+    if(!isTheExpectedFrame && !nackSent) // if the frame is not the expected frame send a nack on the expected frame
+    {
+        // send negative ack
+        std::bitset<4> prefix("0000"); // no error
+        std::string NACKinfo = "At time [" + std::string((simTime() + processingTime).str()) + "], " + std::string(getName()) + " [Sending] " + "[NACK]" + " with number [" + std::to_string(expectedFrame) + "]";
+        EV << NACKinfo << std::endl;
+        fileHandler->writeInOutput(NACKinfo);
+
+        // send the nack
+        sendFrame(0, 2, "", expectedFrame, prefix);
+        nackSent = true; // mark that a nack is sent
+    }
 
     if (frame->checkCheckSum()) // this removes the framing also
     {
         // send postive ack
         std::bitset<4> prefix("0000"); // no error
-        std::string ACKinfo = "At time " + std::string((simTime() + processingTime).str()) + ", " + std::string(getName()) + " [Sent] " + "[ACK]" + " with number [" + std::to_string((frame->getDataSeqNr() + 1) % (receiverMaxSeq + 1)) + "]";
-        EV << ACKinfo << std::endl;
-        fileHandler->writeInOutput(ACKinfo); // write the info in the output file
-
 
         frame->removeFraming();                                                         // remove the framing
         // send the ack
-        sendFrame(0, 1, "", (frame->getDataSeqNr() + 1), prefix);                      // send the ack
+      
         packetsIn[(frame->getDataSeqNr() % receiverWindowSize)] = frame->getPayload(); // save the payload
         arrivedIn[frame->getDataSeqNr() % receiverWindowSize] = true;                  // mark the frame as arrivedIn
 
@@ -204,13 +213,23 @@ void Node::recieveData(Frame *frame)
             arrivedIn[expectedFrame % receiverWindowSize] = false;                             // remove the frame from the buffer
             expectedFrame = (expectedFrame + 1) % (receiverMaxSeq + 1);                        // slide the window
             recUpperBound = (recUpperBound + 1) % (receiverMaxSeq + 1);                        // slide the window
+            nackSent = false;                                                                  // mark that a nack is not sent
         }
+
+          if(isTheExpectedFrame)
+          {
+              std::string ACKinfo = "At time [" + std::string((simTime() + processingTime).str()) + "], " + std::string(getName()) + " [Sending] " + "[ACK]" + " with number [" + std::to_string((expectedFrame)) + "]";
+              EV << ACKinfo << std::endl;
+              fileHandler->writeInOutput(ACKinfo); // write the info in the output file
+              sendFrame(0, 1, "", (expectedFrame), prefix);   // send the cumlative ack
+          }
+                             
     }
     else // the frame is corrupted
     {
         // send negative ack
         std::bitset<4> prefix("0000"); // no error
-        std::string NACKinfo = "At time " + std::string((simTime() + processingTime).str()) + ", " + std::string(getName()) + " [Sent] " + "[NACK]" + " with number [" + std::to_string(frame->getDataSeqNr()) + "]";
+        std::string NACKinfo = "At time [" + std::string((simTime() + processingTime).str()) + "], " + std::string(getName()) + " [Sending] " + "[NACK]" + " with number [" + std::to_string(frame->getDataSeqNr()) + "]";
         EV << NACKinfo << std::endl;
         fileHandler->writeInOutput(NACKinfo);
 
@@ -277,6 +296,14 @@ void Node::startTimer(int seqNr)
 // stop the timer
 void Node::stopTimer(int seqNr)
 {
+    // std::cout << "Stop timer" << std::endl;
+    // std::cout << "seqNr: " << seqNr << std::endl;
+    // std::cout << sizeof(timers) << std::endl;
+
+    //  if (seqNr < 0 || seqNr >= sizeof(timers)) {
+    //    return; // seqNr is out of bounds
+    //}
+
     std::string name = timers[seqNr]; // get the timer name
     if (name.size() == 0 || timeOutMsgs.find(name) == timeOutMsgs.end() || !(timeOutMsgs[name]->isScheduled()) || !strcmp((timeOutMsgs[name]->getName()), ""))
         return; // the timer is already cancelled or does not exist
@@ -312,9 +339,6 @@ void Node::initialize()
     nBuffered = 0;                                  // how many output buffers currently used
     packetsOut = new std::string[senderWindowSize]; // sent packets
     timers = new std::string[senderMaxSeq + 1];     // timers for each packet
-    arrivedOut = new bool[senderWindowSize];        // arrivedOut packets
-    for (int i = 0; i < senderWindowSize; i++)
-        arrivedOut[i] = false; // initialize arrivedOut
     for (int i = 0; i < senderMaxSeq + 1; i++)
         timers[i] = ""; // initialize timers
 
@@ -325,6 +349,7 @@ void Node::initialize()
     receiverMaxSeq = receiverWindowSize * 2 - 1;     // max seq number (2^k - 1)
     packetsIn = new std::string[receiverWindowSize]; // sent packets
     arrivedIn = new bool[receiverWindowSize];        // arrivedIn packets
+    nackSent = false;                                // is a nack sent
     for (int i = 0; i < receiverWindowSize; i++)
         arrivedIn[i] = false; // initialize arrivedIn
 }

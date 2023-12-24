@@ -34,7 +34,6 @@ private:
   int nextFrameToSend;                                     // next frame to send (sender upper bound + 1)
   int nBuffered;                                           // how many packets currently buffered
   int senderMaxSeq;                                        // max seq number (2^k - 1)
-  bool *arrivedOut;                                        // arrived packets in sender
   std::string *packetsOut;                                 // packets to send
   std::string *timers;                                     // the scheduled timers at indices of the seq numbers
   bool isFull;                                             // is the buffer full indicated the sender can't get more packets from the network layer
@@ -47,6 +46,7 @@ private:
   int receiverMaxSeq;     // max seq number (2^k - 1)
   std::string *packetsIn; // received packets
   bool *arrivedIn;        // arrived packets in receiver
+  bool nackSent;          // is a nack sent
 
   // other variables
   FileHandler *fileHandler;                             // file handler object
